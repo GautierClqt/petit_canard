@@ -1,0 +1,58 @@
+var vie, angle;
+
+//définit la valeur de var angle en fonction de la position de Donald
+function flee()
+{
+  if(getX() <= 10)
+  {
+    angle = (Math.random() * 180) - 90;
+    while (getY() >= 10 && getY() <= 90 && getX() <= 90)
+    {
+      swim(angle);
+    }
+  }
+  else if(getX() >= 90)
+  {
+    angle = (Math.random() * 180) + 90
+    while (getY() >= 10 && getY() <= 90 && getX() >= 10)
+    {
+      swim(angle);
+    }
+  {
+  else if(getY() <= 10)
+  {
+    angle = (Math.random() * 180);
+    while (getY() >= 10 && getY() <= 90 && getX() <= 90)
+    {
+      swim(angle);
+    }
+  }
+  else if(getY() >= 90)
+  {
+    angle = (Math.random() * -180);
+    while (getY() >= 10 && getX() >= 10 && getX() <= 90)
+    {
+      swim(angle);
+    }
+  }
+  else
+  {
+    angle = (Math.random() * 360);
+  }
+}
+
+//test
+vie = 100;
+while (true) 
+{
+  if (health() < vie) 
+  {
+    flee();
+    //while (getY() >= 10 && getY() <= 90 && getX() >= 10 && getX() <= 90) 
+    //{
+      //swim(angle);
+    //}
+    stop();
+    vie = health();
+  }
+}
