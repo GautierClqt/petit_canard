@@ -8,51 +8,61 @@ function flee()
     angle = (Math.random() * 180) - 90;
     while (getY() >= 10 && getY() <= 90 && getX() <= 90)
     {
-      swim(angle);
+      swim(angle, 100);
     }
+    stop();
   }
   else if(getX() >= 90)
   {
-    angle = (Math.random() * 180) + 90
+    angle = (Math.random() * 180) + 90;
     while (getY() >= 10 && getY() <= 90 && getX() >= 10)
     {
-      swim(angle);
+      swim(angle, 100);
     }
-  {
+    stop();
+  }
   else if(getY() <= 10)
   {
     angle = (Math.random() * 180);
-    while (getY() >= 10 && getY() <= 90 && getX() <= 90)
+    while (getY() <= 90 && getX() >= 10 && getX() <= 90)
     {
-      swim(angle);
+      swim(angle, 100);
     }
+    stop();
   }
   else if(getY() >= 90)
   {
     angle = (Math.random() * -180);
     while (getY() >= 10 && getX() >= 10 && getX() <= 90)
     {
-      swim(angle);
+      swim(angle, 100);
     }
+    stop();
   }
   else
   {
     angle = (Math.random() * 360);
+    while (getY() >= 10 && getY() <= 90 && getX() >= 10 && getX() <= 90)
+    {
+      swim(angle, 100);
+    }
+    stop();
   }
+}
+
+//comportement offensif de Donald
+function attack()
+{
+  
 }
 
 //test
 vie = 100;
 while (true) 
 {
-  if (health() < vie) 
+  if (health() < vie) //si vie actuelle < que vie stockée
   {
-    flee();
-    //while (getY() >= 10 && getY() <= 90 && getX() >= 10 && getX() <= 90) 
-    //{
-      //swim(angle);
-    //}
-    stop();
+    flee(); //appeler la function flee()
     vie = health();
   }
 }
