@@ -1,4 +1,4 @@
-var vie, angle;
+var vie, angle, angle_scan, ennemy, i;
 
 //définit la valeur de var angle en fonction de la position de Donald
 function flee()
@@ -53,16 +53,30 @@ function flee()
 //comportement offensif de Donald
 function attack()
 {
-  
+  angle_scan = angle_scan + 3;
+  ennemi = scan(angle_scan);
+  if (ennemi != Infinity)
+  {
+    angle_scan = angle_scan - 4;
+    swim(angle_scan, 50);
+    cannon (angle_scan, 5);
+  }
 }
 
 //test
 vie = 100;
+angle_scan = 0;
+i = 0;
+
 while (true) 
 {
-  if (health() < vie) //si vie actuelle < que vie stockée
+  if (health() < vie && health() < 50) //si vie actuelle < que vie stockée
   {
     flee(); //appeler la function flee()
     vie = health();
+  }
+  else
+  {
+    attack();
   }
 }
