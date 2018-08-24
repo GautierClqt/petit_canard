@@ -1,9 +1,18 @@
-var vie, angle, angle_scan, ennemy, i;
+var vie, angle, angle_scan, ennemy, X_pos, i;
 
 //définit la valeur de var angle en fonction de la position de Donald
 function flee()
 {
-  if(getX() <= 10)
+  if (getX() == X_pos)
+  {
+    angle = (Math.random() * 360);
+    while (getY() >= 10 && getY() <= 90 && getX() >= 10 && getX() <= 90)
+    {
+      swim(angle, 100);
+    }
+    stop();
+  }
+  else if(getX() <= 10)
   {
     angle = (Math.random() * 180) - 90;
     while (getY() >= 10 && getY() <= 90 && getX() <= 90)
@@ -59,7 +68,7 @@ function attack()
   {
     angle_scan = angle_scan - 4;
     swim(angle_scan, 50);
-    cannon (angle_scan, 5);
+    cannon (angle_scan, ennemi);
   }
 }
 
@@ -67,11 +76,13 @@ function attack()
 vie = 100;
 angle_scan = 0;
 i = 0;
+X_pos = 0;
 
 while (true) 
 {
   if (health() < vie && health() < 50) //si vie actuelle < que vie stockée
   {
+    X_pos = getX();
     flee(); //appeler la function flee()
     vie = health();
   }
