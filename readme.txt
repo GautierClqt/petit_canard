@@ -10,5 +10,5 @@ If you want to test my code:
 4/ click on the red "Run Program" button.
 
 This code is far from perfect, I'm trying to improve what exist and add useful new features.
-If you want to feel free to modify/improve the code but try to explain what is the improvement.
+If you want to, feel free to modify/improve the code but try to explain what is the improvement.
 This is an exercise the main goal is to learn how to code.
